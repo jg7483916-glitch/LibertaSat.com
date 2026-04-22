@@ -1,196 +1,453 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Libertas Sat | Inteligência Geospacial Ética</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Método Cliente Todo Dia</title>
+  <meta name="description" content="Como conseguir seu primeiro cliente online em até 7 dias, mesmo começando do zero." />
+  <style>
+    :root {
+      --bg: #050505;
+      --surface: #101010;
+      --surface-2: #181818;
+      --text: #f5f5f5;
+      --muted: #b8b8b8;
+      --accent: #1db954;
+      --accent-2: #38a1ff;
+      --danger: #f95f5f;
+      --radius: 24px;
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    * {
+      box-sizing: border-box;
+    }
 
+    body {
+      margin: 0;
+      background: radial-gradient(circle at top, rgba(29, 185, 84, 0.12), transparent 30%),
+        linear-gradient(180deg, #050505 0%, #080808 100%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .wrapper {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    header,
+    .section {
+      padding: 40px 0;
+    }
+
+    .hero {
+      display: grid;
+      gap: 24px;
+      padding: 40px 0 20px;
+    }
+
+    .hero-top {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 36px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius);
+      background: rgba(255, 255, 255, 0.03);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--accent);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.82rem;
+    }
+
+    .eyebrow::before {
+      content: "Oferta por tempo limitado";
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.8rem, 4vw, 4.4rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+    }
+
+    p.lead {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: #fff;
+      box-shadow: 0 18px 35px rgba(29, 185, 84, 0.28);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .panel {
+      display: grid;
+      gap: 18px;
+      padding: 32px 26px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+    }
+
+    .grid-2 {
+      display: grid;
+      gap: 24px;
+    }
+
+    .cards {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      padding: 24px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.28rem;
+    }
+
+    .card p {
+      margin: 0.8em 0 0;
+      color: var(--muted);
+    }
+
+    .highlight {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .price-block {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 18px;
+      justify-content: space-between;
+      padding: 28px 30px;
+      border-radius: 28px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.24);
+    }
+
+    .price-tag {
+      display: flex;
+      align-items: baseline;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .price-old {
+      color: var(--muted);
+      text-decoration: line-through;
+      font-size: 1rem;
+    }
+
+    .price-current {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    .guarantee {
+      padding: 26px 30px;
+      border-radius: 24px;
+      border: 1px solid rgba(29, 185, 84, 0.25);
+      background: rgba(29, 185, 84, 0.06);
+      color: #e8ffef;
+    }
+
+    .guarantee strong {
+      color: #fff;
+    }
+
+    .faq {
+      display: grid;
+      gap: 18px;
+    }
+
+    .faq-item {
+      padding: 22px 24px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+    }
+
+    .faq-item h4 {
+      margin: 0 0 10px;
+      font-size: 1.07rem;
+    }
+
+    .faq-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .social-proof {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .social-proof span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    footer {
+      padding: 24px 0 12px;
+      color: var(--muted);
+      font-size: 0.92rem;
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      gap: 8px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(56, 161, 255, 0.12);
+      color: var(--accent-2);
+      font-size: 0.88rem;
+      font-weight: 700;
+    }
+
+    @media (min-width: 900px) {
+      .hero {
+        grid-template-columns: 1.2fr 0.8fr;
+      }
+
+      .hero-panel {
+        padding: 32px;
+      }
+
+      .grid-2 {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .hero-top,
+      .card,
+      .price-block,
+      .guarantee,
+      .faq-item {
+        padding: 24px;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
 </head>
 <body>
-
-  <header class="navbar">
-
-    <div class="container navbar-content">
-
-      <div class="logo"><i class="fas fa-satellite"></i> LIBERTAS<span>SAT</span></div>
-
-      <nav>
-
-        <ul class="nav-links">
-          <li><a href="#home">Início</a></li>
-          <li><a href="tecnologia.html">Tecnologia</a></li>
-          <li><a href="impacto.html">Impacto</a></li>
-          <li><a href="casos.html">Casos</a></li>
-          <li><a href="contato.html" class="btn-cta">Contato</a></li>
-        </ul>
-
-        <button class="hamburger" aria-label="Abrir menu">
-
-          <span></span><span></span><span></span>
-
-        </button>
-
-      </nav>
-
-    </div>
-
-  </header>
-
-  <main>
-    <section id="home" class="hero">
-
-      <div class="container hero-grid">
-
-        <div class="hero-text" data-aos="fade-right">
-
-          <span class="badge"><i class="fas fa-shield-alt"></i> Tecnologia Satelital de Ponta</span>
-
-          <h1>Justiça vinda do <span class="gradient-text">espaço.</span></h1>
-
-          <p>Monitoramos cadeias de suprimentos globais em tempo real. Se houver exploração,
-             nossa IA detecta. Se houver crime, nós expomos.</p>
-          
-          <div class="hero-btns">
-            <a class="btn-primary" href="casos.html"><i class="fas fa-rocket"></i> Conhecer Solução</a>
-          </div>
-
-          <div class="stats">
-            <div class="stat"><h4>150+</h4><p>Países</p></div>
-            <div class="stat"><h4>98.7%</h4><p>Precisão</p></div>
-          </div>
-
+  <div class="wrapper">
+    <header class="hero" id="hero">
+      <div class="hero-top">
+        <span class="eyebrow">Oferta por tempo limitado</span>
+        <h1>Como conseguir seu primeiro cliente online em até 7 dias — mesmo começando do zero</h1>
+        <p class="lead">Sem experiência, sem seguidores e sem precisar aparecer. Um método simples para jovens que querem faturar com serviços digitais e fechar vendas com confiança.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#checkout" id="heroCta">Quero meu primeiro cliente</a>
+          <a class="btn btn-secondary" href="#benefits">Ver benefícios</a>
         </div>
-
-        <div class="hero-image" data-aos="zoom-in" data-aos-delay="200">
-
-          <div class="img-wrapper">
-
-            <div class="scan-line"></div>
-
-            <img src="./libertasat.png" alt="Monitoramento Libertas Sat">
-
-          </div>
-
-        </div>
-
       </div>
 
-    </section>
-
-  
-
-
-    <section class="container section-padding">
-
-      <div class="cta-banner" data-aos="zoom-in">
-
-        <div class="cta-content">
-
-          <h2>Pronto para transformar a justiça?</h2>
-
-          <p>Demonstração da plataforma Libertas Sat para sua organização.</p>
-
-          <a class="btn-primary-lg" href="contato.html"><i class="fas fa-calendar-check"></i> Acesso</a>
-
+      <div class="hero-panel panel">
+        <h3>O caminho mais rápido para seu primeiro cliente</h3>
+        <p>O <strong>Método Cliente Todo Dia</strong> combina ebook, scripts e plano prático para que você saiba exatamente o que falar e como abordar seu primeiro cliente.</p>
+        <div class="social-proof">
+          <span>+ 580 jovens já começaram</span>
+          <span>95% relatam clareza imediata</span>
+          <span>Suporte direto ao comprador</span>
         </div>
+      </div>
+    </header>
 
+    <section class="section panel" id="problems">
+      <h2>Você se identifica com isso?</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Não sabe o que falar com clientes</h3>
+          <p>Sem scripts prontos, a conversa trava e as oportunidades desaparecem.</p>
+        </div>
+        <div class="card">
+          <h3>Trava na hora de vender</h3>
+          <p>O medo de ouvir "não" paralisa e acaba bloqueando o primeiro passo.</p>
+        </div>
+        <div class="card">
+          <h3>Já tentou e não conseguiu</h3>
+          <p>Você já investiu tempo e energia, mas os resultados não apareceram.</p>
+        </div>
+        <div class="card">
+          <h3>Sente que está perdido</h3>
+          <p>Existe um caminho claro, mas você ainda não encontrou o método certo.</p>
+        </div>
       </div>
     </section>
 
-
-
-    
-
-
-  <footer class="footer">
-
-    <div class="container footer-grid">
-
-      <div>
-
-        <div class="logo">LIBERTAS<span>SAT</span></div>
-
-        <p style="margin-top:15px">Inteligência orbital para um mundo livre de exploração.</p>
-
+    <section class="section" id="belief">
+      <div class="panel">
+        <h2>Não é culpa sua</h2>
+        <p>O problema não é você. O que falta é um método estruturado que mostre passo a passo como atrair, abordar e fechar clientes online. Sem método, até a melhor vontade se perde.</p>
       </div>
+    </section>
 
-      <div>
-
-        <h4>Recursos</h4>
-
-        <ul class="footer-links">
-
-          <li><a href="#">Privacidade</a></li>
-
-          <li><a href="#">Termos de Uso</a></li>
-
-          <li><a href="#">Documentação IA</a></li>
-
-        </ul>
-
+    <section class="section grid-2" id="product">
+      <div class="card">
+        <h2>O que é o Método Cliente Todo Dia</h2>
+        <p>Um produto digital prático que entrega um ebook com jornada completa, scripts de mensagens e um plano de 7 dias para gerar resultados reais mesmo sem experiência.</p>
       </div>
-
-      <div>
-        <h4>Navegação</h4>
-
-        <ul class="footer-links">
-
-          <li><a href="#home">Início</a></li>
-
-          <li><a href="tecnologia.html">Tecnologia</a></li>
-
-          <li><a href="impacto.html">Impacto</a></li>
-
-        </ul>
-
+      <div class="card">
+        <h2>De iniciante a quem fecha clientes</h2>
+        <p>Você passa de indeciso a confiante, sabendo exatamente o que dizer, como mostrar seu valor e como converter propostas em vendas.</p>
       </div>
+    </section>
 
-      <div>
-        
-        <h4>Siga-nos</h4>
-
-        <div class="social-links">
-          <a href="#"><i class="fab fa-whatsapp"></i></a>
-          <a href="#"><i class="fab fa-instagram"></i></a>
-          <a href="#"><i class="fab fa-tiktok"></i></a>
+    <section class="section panel" id="benefits">
+      <h2>Você vai aprender a:</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Falar com confiança</h3>
+          <p>Comunicar seu valor de forma natural e profissional, sem gírias ou insegurança.</p>
         </div>
-
+        <div class="card">
+          <h3>Saber exatamente o que dizer</h3>
+          <p>Scripts prontos para clientes, follow-up e vendas que eliminam as dúvidas na hora de escrever.</p>
+        </div>
+        <div class="card">
+          <h3>Conseguir os primeiros clientes</h3>
+          <p>Um plano de 7 dias com passos diários para você prospectar, validar e fechar contratos rápidos.</p>
+        </div>
       </div>
+    </section>
 
-    </div>
+    <section class="section" id="offer">
+      <div class="panel cards">
+        <div class="card">
+          <h3>Ebook completo</h3>
+          <p>Conteúdo direto, passo a passo e fácil de seguir, pensado para quem entra no mercado agora.</p>
+        </div>
+        <div class="card">
+          <h3>Scripts prontos</h3>
+          <p>Modelos de mensagens e abordagens para enviar a clientes sem erro.</p>
+        </div>
+        <div class="card">
+          <h3>Plano de 7 dias</h3>
+          <p>Rotina prática para sua ação diária, com metas simples e resultados rápidos.</p>
+        </div>
+      </div>
+    </section>
 
-    <div class="container footer-bottom">
-      <p>&copy; 2026 Libertas Sat. Projeto Acadêmico - Todos os direitos reservados.</p>
-    </div>
+    <section class="section" id="checkout">
+      <div class="price-block">
+        <div>
+          <p class="price-old">Preço antigo: R$97</p>
+          <p class="price-current">R$19</p>
+          <p class="muted">Desconto especial para jovens e iniciantes</p>
+        </div>
+        <a id="checkoutButton" class="btn btn-primary" href="#" target="_blank" rel="noopener">Quero começar agora</a>
+      </div>
+      <div class="guarantee">
+        <strong>7 dias de garantia total</strong> ou seu dinheiro de volta. Sem riscos, sem dúvida e com suporte para você avançar nas primeiras ações.
+      </div>
+    </section>
 
-  </footer>
+    <section class="section panel" id="faq">
+      <h2>Perguntas frequentes</h2>
+      <div class="faq">
+        <div class="faq-item">
+          <h4>Funciona para iniciantes?</h4>
+          <p>Sim. O método foi pensado para quem está começando do zero, com linguagem simples e passos claros.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Preciso aparecer?</h4>
+          <p>Não. O foco é em comunicação de valor e vendas diretas, sem exigir que você poste vídeos ou faça lives.</p>
+        </div>
+        <div class="faq-item">
+          <h4>Em quanto tempo vejo resultado?</h4>
+          <p>O objetivo é gerar seu primeiro cliente em até 7 dias, desde que você aplique o plano com foco e ação diária.</p>
+        </div>
+      </div>
+    </section>
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <footer>
+      <p>Oportunidade para quem quer sair do zero: conteúdos diretos, método comprovado e possibilidade real de fechar clientes na primeira semana.</p>
+    </footer>
+  </div>
 
   <script>
-    
-    AOS.init({ duration: 1000, once: true });
+    const checkoutLink = 'https://pay.kiwify.com.br/TmM3dPq';
+    const buttons = document.querySelectorAll('#heroCta, #checkoutButton');
 
-    // Menu Mobile
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
-    
-    hamburger.addEventListener('click', () => {
-      hamburger.classList.toggle('active');
-      navLinks.classList.toggle('open');
+    buttons.forEach((button) => {
+      button.href = checkoutLink;
     });
-
   </script>
-
-
-
-
-
-
 </body>
 </html>
